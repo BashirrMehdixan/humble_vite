@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    inset: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+// Buttons
+@import url(./partials/_buttons.scss);
+
+// Layouts
+@import url(./partials/_navbar.scss);
+a {
+    text-decoration: none;
+}
+
+.container {
+
+}
