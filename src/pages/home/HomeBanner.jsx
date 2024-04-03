@@ -5,7 +5,7 @@ const HomeBanner = () => {
         <>
             <section className="home-banner-section">
                 <div className="container">
-                    <BannerComponent banImg={"main-banner"} />
+                    <BannerComponent banImg={"main-banner"} btnText={"JOIN NOW"}/>
                 </div>
             </section>
         </>

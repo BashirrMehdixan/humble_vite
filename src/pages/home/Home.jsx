@@ -1,11 +1,15 @@
-import HomeBanner from "/src/pages/home/HomeBanner";
-import Featured from "/src/pages/home/Featured";
+import HomeBanner from "./HomeBanner";
+import Featured from "./Featured";
+import BundleBanner from "./BundleBanner";
+import HomeBundle from "./HomeBundles"
 
 const Home = () => {
     return (
         <>
             <HomeBanner/>
             <Featured/>
+            <BundleBanner/>
+            <HomeBundles/>
         </>
     )
 }

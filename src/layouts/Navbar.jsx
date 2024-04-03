@@ -26,7 +26,7 @@ const Navbar = () => {
                             <ul className="navbar">
                                 <li>
                                     <NavLink to={'/'} className={"logo"}>
-                                        <img src={'./assets/images/logo-white.svg'} alt=""/>
+                                        <img src={'../assets/images/logo-white.svg'} alt=""/>
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">

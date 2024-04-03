@@ -1,3 +1,7 @@
+html, body, .container {
+    height: 100%;
+}
+
 .swiper {
     width: 100%;
     height: 100%;
@@ -19,4 +23,24 @@
 .swiper {
     margin-left: auto;
     margin-right: auto;
+}
+
+.game-slide {
+    .swiper-button-next, .swiper-button-prev {
+        color: #fff;
+        background-color: #3b3e48;
+        padding: 1rem 1.4rem;
+        border-radius: 50%;
+        opacity: .5;
+        border: 1px solid #fff;
+        transition: .5s linear;
+
+        &::after {
+            font-size: 1.5rem;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
