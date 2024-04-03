@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 // Icons
 import {RiCloseFill} from "react-icons/ri";
@@ -12,9 +12,9 @@ const Navbar = () => {
             <header>
                 <div className={`top-head ${open ? 'close' : ''}`}>
                     <h2>
-                        <Link to={"/"}>
+                        <NavLink to={"/"}>
                             Own Warhammer Age of Sigmar: Realms of Ruin & Nioh 2 with March’s Humble Choice!
-                        </Link>
+                        </NavLink>
                     </h2>
                     <button className="btn close-btn" onClick={() => setOpen(!open)}>
                         <RiCloseFill/>
@@ -25,24 +25,24 @@ const Navbar = () => {
                         <div className="main-nav">
                             <ul className="navbar">
                                 <li>
-                                    <Link to={'/'} className={"logo"}>
+                                    <NavLink to={'/'} className={"logo"}>
                                         <img src={'./assets/images/logo-white.svg'} alt=""/>
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={"bundles"}>Bundles</Link>
+                                    <NavLink to={"bundles"}>Bundles</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={"store"}>Store</Link>
+                                    <NavLink to={"store"}>Store</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={"choice"}>Choice</Link>
+                                    <NavLink to={"choice"}>Choice</NavLink>
                                 </li>
                                 <li className={"nav-item"}>
-                                    <Link to={"blog"}>Blog</Link>
+                                    <NavLink to={"blog"}>Blog</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to={"about"}>About</Link>
+                                    <NavLink to={"about"}>About</NavLink>
                                 </li>
                             </ul>
 
@@ -60,10 +60,10 @@ const Navbar = () => {
                                     </div>
                                 </li>
                                 <li className="right-nav-item">
-                                    <Link to={"register"}>Sign up</Link>
+                                    <NavLink to={"register"}>Sign up</NavLink>
                                 </li>
                                 <li className="right-nav-item">
-                                    <Link to={"login"}>Sign in</Link>
+                                    <NavLink to={"login"}>Sign in</NavLink>
                                 </li>
                             </ul>
                         </div>

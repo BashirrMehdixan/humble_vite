@@ -1,0 +1,44 @@
+.banner-box {
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 1.5rem 1rem;
+    margin: 2rem 0;
+
+    * {
+        color: #FFF;
+    }
+
+    &.main-banner {
+        background-image: url(public/assets/images/banners/banner-1.jpg);
+
+    }
+
+    .banner-content {
+        width: 50%;
+        font-weight: 500;
+        padding: 1.5rem;
+
+        .inner-text {
+            padding: 1rem 0;
+            line-height: 2rem;
+        }
+
+        .condition {
+            padding: 1rem;
+
+            li {
+                font-size: .9rem;
+                list-style-type: disc;
+                padding: .8rem 0;
+            }
+        }
+
+        .btn-blue {
+            max-width: 22rem;
+            font-size: 1.3rem;
+            padding: 1.5rem 1rem;
+            text-transform: uppercase;
+        }
+    }
+}

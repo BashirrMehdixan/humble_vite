@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 * {
-    font-size: 16px;
-    font-family: "Sofia Sans Semi Condensed", sans-serif;
+    font-size: 1rem;
+    font-family: "Rubik", sans-serif;
     margin: 0;
     margin-inline: 0;
     margin-block: 0;
@@ -20,8 +20,17 @@
 // Form elements
 @import url(./partials/_form-elements.scss);
 
+@import url(./partials/_heads.scss);
 // Layouts
 @import url(./partials/_navbar.scss);
+
+// Pages
+@import url(./partials/_home-banner.scss);
+
+
+body {
+    background-color: #494F5C;
+}
 
 a {
     text-decoration: none;
