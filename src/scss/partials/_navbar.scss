@@ -74,7 +74,7 @@ nav {
                 height: inherit;
 
                 &.nav-item {
-                    font-size: 1.2rem;
+                    font-size: 1rem;
                     font-weight: 600;
                     margin: 0 .9rem;
                     padding: 1.5rem 0;
@@ -124,7 +124,7 @@ nav {
                 height: auto;
                 margin-left: auto;
                 overflow: visible;
-                padding: 0 15px 0 0;
+                padding: 0 1rem 0 0;
             }
 
             .search-box {
@@ -135,8 +135,6 @@ nav {
                     color: #d8d8da;
                     font-weight: 800;
                     background-color: #282C34;
-                    padding: 0.75em 2em 0.75em 0.9em;
-                    border-radius: .3rem;
 
                     &::placeholder {
                         color: #d8d8da;
