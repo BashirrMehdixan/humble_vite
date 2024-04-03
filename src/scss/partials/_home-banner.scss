@@ -10,12 +10,15 @@
     }
 
     &.main-banner {
-        background-image: url(./assets/images/banners/banner-1.jpg);
+        background-image: url(../assets/images/banners/banner-1.jpg);
+    }
 
+    &.bundle-banner {
+        background-image: url(../assets/images/banners/banner-2.jpg);
     }
 
     .banner-content {
-        width: 50%;
+        width: 45%;
         font-weight: 500;
         padding: 1.5rem;
 
@@ -38,7 +41,6 @@
             max-width: 22rem;
             font-size: 1.3rem;
             padding: 1.5rem 1rem;
-            text-transform: uppercase;
         }
     }
 }

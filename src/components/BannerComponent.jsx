@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const BannerComponent = ({banImg}) => {
+const BannerComponent = ({banImg, btnText}) => {
     return (
         <>
             <div className={`banner-box ${banImg}`}>
@@ -30,7 +30,7 @@ const BannerComponent = ({banImg}) => {
                             Skip a month or cancel anytime
                         </li>
                     </ul>
-                    <Link to={"membership"} className={"btn btn-blue"}>join now</Link>
+                    <Link to={"membership"} className={"btn btn-blue"}>{btnText}</Link>
                 </div>
             </div>
         </>

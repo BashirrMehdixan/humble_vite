@@ -1,0 +1,40 @@
+.product-card {
+    .product-img {
+        height: 255.83px;
+
+        img {
+            filter: brightness(.6);
+            transition: .3s linear;
+        }
+    }
+
+    .product-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+
+        .product-title {
+            color: #494F5C;
+            font-size: 1.1rem;
+            padding: .8rem;
+        }
+
+        .platform-list {
+            display: flex;
+            gap: .5rem;
+            color: #494F5C;
+
+            svg {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    &:hover {
+        img {
+            filter: brightness(1);
+        }
+    }
+
+}
