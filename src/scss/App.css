@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import url(./partials/_buttons.scss);
+@import url(./partials/_swiper.scss);
 @import url(./partials/_form-elements.scss);
 @import url(./partials/_heads.scss);
 @import url(./partials/_navbar.scss);
