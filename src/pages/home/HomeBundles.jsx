@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {GameContext} from "/src/context/Games/GameContext";
-import {BundleCard} from "/src/components/ProductCards";
+import {BundleCard} from "/src/components/Cards";
 import {HiOutlineArrowSmRight} from "react-icons/hi";
 
 const HomeBundles = () => {

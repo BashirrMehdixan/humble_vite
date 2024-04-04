@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import {Pagination, Navigation} from 'swiper/modules';
 // Components
-import {GameCard} from "/src/components/ProductCards";
+import {GameCard} from "/src/components/Cards";
 
 const Featured = () => {
     const {games} = useContext(GameContext);

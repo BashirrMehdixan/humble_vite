@@ -6,6 +6,7 @@
 @import url(./partials/_form-elements.scss);
 @import url(./partials/_heads.scss);
 @import url(./partials/_navbar.scss);
+@import url(./partials/_footer.scss);
 @import url(./partials/_home-banner.scss);
 * {
   font-size: 1rem;

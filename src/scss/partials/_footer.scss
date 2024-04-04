@@ -1,0 +1,58 @@
+.footer-container {
+    color: #fff;
+    font-weight: 300;
+    background-color: #2f333d;
+    margin: 4rem 0;
+    padding: 4rem 0;
+
+    .title {
+        padding-bottom: .8rem;
+    }
+
+    .inner-text {
+        font-size: .9rem;
+        padding: 2rem 0;
+        line-height: 1.5rem;
+    }
+
+    .invite-btn {
+        color: #fe9943;
+        font-weight: 600;
+    }
+
+    .left-footer {
+        width: 20%;
+    }
+
+    .middle-footer {
+        width: 55%;
+        padding: 0 1.5rem;
+
+        .flex {
+            align-items: center;
+            justify-content: space-between;
+
+            .middle-item {
+                width: calc(50% - 16px);
+            }
+        }
+
+        .menu-list {
+            padding-bottom: 1rem;
+
+            li {
+                padding: .5rem 0;
+
+                a {
+                    font-size: .9rem;
+                    color: #d8d8da;
+                    font-weight: 400;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
