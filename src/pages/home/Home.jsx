@@ -1,7 +1,8 @@
 import HomeBanner from "./HomeBanner";
 import Featured from "./Featured";
 import BundleBanner from "./BundleBanner";
-import HomeBundles from "./HomeBundles"
+import HomeBundles from "./HomeBundles";
+import HomeGames from "./HomeGames";
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Featured/>
             <BundleBanner/>
             <HomeBundles/>
+            <HomeGames/>
         </>
     )
 }
