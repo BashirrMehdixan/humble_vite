@@ -113,3 +113,29 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .bundle-item {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .bundle-item {
+        width: calc(50% - 16px);
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .bundle-item {
+        .bundle-info {
+            display: block;
+
+            .bundle-title,
+            .time-left {
+                text-align: center;
+                margin-top: .5rem;
+            }
+        }
+    }
+}

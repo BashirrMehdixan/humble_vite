@@ -44,3 +44,17 @@
         }
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .banner-box {
+        padding: 0;
+
+        .banner-content {
+            width: 100%;
+
+            .inner-text, .condition {
+                display: none;
+            }
+        }
+    }
+}
