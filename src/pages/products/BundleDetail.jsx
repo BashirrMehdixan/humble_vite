@@ -2,18 +2,16 @@ import {useContext} from "react";
 import {useParams} from "react-router-dom";
 import {GameContext} from "/src/context/Games/GameContext";
 
-const GameDetail = () => {
+const BundleDetail = () => {
     const {slug} = useParams();
     const {games} = useContext(GameContext);
-    const game = games ? games.find(item => item.slug === slug) : "";
+    const bundle = games.find(item => item.slug === slug);
     return (
-        game &&
         <>
             <div className="container">
-                <img src={game.background_image} alt=""/>
+                {<img src={bundle.background_image} alt={bundle.name}/>}
             </div>
         </>
     )
 }
-
-export default GameDetail;
+export default BundleDetail;

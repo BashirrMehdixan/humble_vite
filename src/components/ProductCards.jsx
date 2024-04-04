@@ -14,7 +14,7 @@ export const GameCard = ({game}) => {
                 </div>
                 <div className="product-info">
                     <h4 className="product-title">
-                        <Link to={`/games/${game.slug}`}>
+                        <Link to={`/games/${game.slug}`} className={"border-bottom"}>
                             {game.name}
                         </Link>
                     </h4>
@@ -31,6 +31,42 @@ export const GameCard = ({game}) => {
                         </li>
                         <li className="platform-item"><Link className="btn btn-outer"></Link></li>
                     </ul>
+                </div>
+            </div>
+        </>
+    )
+}
+
+
+export const BundleCard = ({bundle}) => {
+    return (
+        <>
+            <div className="bundle-item">
+                <div className="bundle-img">
+                    <Link to={`/bundles/${bundle.slug}`}>
+                        <img src={bundle.background_image} alt={bundle.name}/>
+                        <div className="bundle-overlay"></div>
+                        <div className="bundle-details">
+                            <h3 className="hover-title">PAY WHAT YOU WANT</h3>
+                            <p className="hover-text">
+                                Get DB BR 363 Loco Add-On DB BR 101 Loco Add-On Train Sim World 4: Standard Edition ,
+                                and more!
+                            </p>
+                            <div className="detail-list">
+                                <li>15 ITEMS</li>
+                                <li>US$444 VALUE</li>
+                                <li>1.694 SOLD</li>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+                <div className="bundle-info">
+                    <h4 className="bundle-title">
+                        <Link to={`/bundles/${bundle.slug}`} className={"border-bottom"}>{bundle.name}</Link>
+                    </h4>
+                    <p className="time-left">
+                        20 DAYS LEFT
+                    </p>
                 </div>
             </div>
         </>

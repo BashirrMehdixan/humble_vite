@@ -2,7 +2,7 @@
 
 * {
     font-size: 1rem;
-    font-family: "Rubik", sans-serif;
+    font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
     margin-inline: 0;
     margin-block: 0;
@@ -16,10 +16,14 @@
 
 // Buttons
 @import url(./partials/_buttons.scss);
+
 //Swiper
 @import url(./partials/_swiper.scss);
-// Product Card
+
+// Cards
 @import url(./partials/_product-card.scss);
+@import url(./partials/_bundle-card.scss);
+
 // Form elements
 @import url(./partials/_form-elements.scss);
 
@@ -36,10 +40,31 @@ body {
     background-color: #494F5C;
 }
 
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 a {
     text-decoration: none;
     font-size: inherit;
     color: inherit;
+    transition: .3s linear;
+
+    &.border-bottom {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 2px;
+            bottom: -.2rem;
+            left: 0;
+            transition: .3s linear;
+        }
+    }
 }
 
 .container {

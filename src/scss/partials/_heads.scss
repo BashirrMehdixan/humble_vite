@@ -7,3 +7,25 @@
     color: #fff;
     padding: 1rem 0;
 }
+
+.head-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        color: #d8d8da;
+        font-weight: 800;
+
+        span {
+            margin: 0 5px;
+        }
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}

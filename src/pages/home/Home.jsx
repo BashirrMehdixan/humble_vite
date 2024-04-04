@@ -1,7 +1,7 @@
 import HomeBanner from "./HomeBanner";
 import Featured from "./Featured";
 import BundleBanner from "./BundleBanner";
-import HomeBundle from "./HomeBundles"
+import HomeBundles from "./HomeBundles"
 
 const Home = () => {
     return (
