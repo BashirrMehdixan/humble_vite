@@ -17,24 +17,26 @@ const Featured = () => {
     return (
         games &&
         <>
-            <div className="container">
-                <h3 className="small-head">Features</h3>
-                <Swiper
-                    slidesPerView={3}
-                    spaceBetween={30}
-                    loop={true}
-                    navigation={true}
-                    modules={[Navigation]}
-                    className="game-slide"
-                >{games.map((game, index) => {
-                    return (
-                        <SwiperSlide key={index}>
-                            <GameCard game={game}/>
-                        </SwiperSlide>
-                    )
-                })}
-                </Swiper>
-            </div>
+            <section className="featured-game-section">
+                <div className="container">
+                    <h3 className="small-head">Features</h3>
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        loop={true}
+                        navigation={true}
+                        modules={[Navigation]}
+                        className="game-slide"
+                    >{games.map((game, index) => {
+                        return (
+                            <SwiperSlide key={index}>
+                                <GameCard game={game}/>
+                            </SwiperSlide>
+                        )
+                    })}
+                    </Swiper>
+                </div>
+            </section>
         </>
     )
 }

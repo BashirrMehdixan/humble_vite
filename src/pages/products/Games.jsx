@@ -1,4 +1,4 @@
-const Products = () => {
+const Games = () => {
     return (
         <>
             Products page
@@ -6,4 +6,4 @@ const Products = () => {
     )
 }
 
-export default Products;
+export default Games;

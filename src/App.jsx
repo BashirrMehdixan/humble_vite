@@ -6,8 +6,10 @@ import RootLayout from "./layouts/RootLayout";
 
 // Pages
 import Home from "/src/pages/home/Home";
-import Products from "/src/pages/products/Products";
+import Games from "/src/pages/products/Games";
 import GameDetail from "/src/pages/products/GameDetail";
+import Bundles from "/src/pages/products/Bundles";
+import BundleDetail from "/src/pages/products/BundleDetail";
 
 // CSS
 import "./scss/App.css";
@@ -24,11 +26,19 @@ const App = () => {
                 },
                 {
                     path: "/games",
-                    element: <Products/>
+                    element: <Games/>
                 },
                 {
                     path: "/games/:slug",
                     element: <GameDetail/>
+                },
+                {
+                    path: "/bundles",
+                    element: <Bundles/>
+                },
+                {
+                    path: "/bundles/:slug",
+                    element: <BundleDetail/>
                 }
             ]
         }

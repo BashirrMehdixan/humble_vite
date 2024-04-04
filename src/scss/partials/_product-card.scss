@@ -1,4 +1,6 @@
 .product-card {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.45);
+
     .product-img {
         height: 255.83px;
 
@@ -34,6 +36,13 @@
     &:hover {
         img {
             filter: brightness(1);
+        }
+
+        .product-title {
+            a.border-bottom::after {
+                width: 100%;
+                background-color: #3b3e48;
+            }
         }
     }
 

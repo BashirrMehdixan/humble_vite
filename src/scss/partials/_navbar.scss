@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    transition: .5s;
+    transition: .3s linear;
 
     &.close {
         transform-origin: top;
@@ -78,11 +78,11 @@ nav {
                     font-weight: 600;
                     margin: 0 .9rem;
                     padding: 1.5rem 0;
-                    transition: .5s linear;
+                    transition: .3s linear;
 
                     a {
                         position: relative;
-                        transition: .5s linear;
+                        transition: .3s linear;
 
                         &::after {
                             content: "";
@@ -92,7 +92,7 @@ nav {
                             background-color: #fff;
                             left: 0;
                             bottom: 0;
-                            transition: .5s linear;
+                            transition: .3s linear;
                         }
                     }
 
