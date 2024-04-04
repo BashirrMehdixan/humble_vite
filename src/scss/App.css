@@ -7,84 +7,65 @@
 @import url(./partials/_heads.scss);
 @import url(./partials/_navbar.scss);
 @import url(./partials/_home-banner.scss);
-
 * {
-    font-size: 1rem;
-    font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0;
-    margin-inline: 0;
-    margin-block: 0;
-    padding-block: 0;
-    padding-inline: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style-type: none;
-    box-sizing: border-box;
+  font-size: 1rem;
+  font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  margin-inline: 0;
+  margin-block: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #494F5C;
+  background-color: #494F5C;
 }
 
 .flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.none {
+  display: none;
 }
 
 a {
-    text-decoration: none;
-    font-size: inherit;
-    color: inherit;
-    transition: 0.3s linear;
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+  transition: 0.3s linear;
 }
-
 a.border-bottom {
-    position: relative;
+  position: relative;
 }
-
 a.border-bottom::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 2px;
-    bottom: -0.2rem;
-    left: 0;
-    transition: 0.3s linear;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  bottom: -0.2rem;
+  left: 0;
+  transition: 0.3s linear;
 }
 
 .container {
-    max-width: 1320px;
-    padding: 0 1rem;
-    margin: 0 auto;
+  max-width: 90%;
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
-@media only screen and (max-width: 575px) {
-    .container {
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-    .container {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .container {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px) {
-    .container {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .container {
-        max-width: 1140px;
-    }
-}
+/*# sourceMappingURL=App.css.map */

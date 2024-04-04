@@ -21,11 +21,21 @@ const Featured = () => {
                 <div className="container">
                     <h3 className="small-head">Features</h3>
                     <Swiper
-                        slidesPerView={3}
+                        slidesPerView={1}
                         spaceBetween={30}
                         loop={true}
                         navigation={true}
                         modules={[Navigation]}
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 40,
+                            },
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 50,
+                            },
+                        }}
                         className="game-slide"
                     >{games.map((game, index) => {
                         return (
