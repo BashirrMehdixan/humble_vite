@@ -12,6 +12,7 @@
     text-decoration: none;
     list-style-type: none;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 // Buttons
@@ -86,33 +87,3 @@ a {
     padding: 0 1rem;
     margin: 0 auto;
 }
-
-// @media only screen and (max-width: 575px) {
-//     .container {
-//         max-width: 100%;
-//     }
-// }
-
-// @media (min-width: 576px) and (max-width: 767px) {
-//     .container {
-//         max-width: 540px;
-//     }
-// }
-
-// @media (min-width: 768px) and (max-width: 991px) {
-//     .container {
-//         max-width: 720px;
-//     }
-// }
-
-// @media (min-width: 992px) and (max-width: 1199px) {
-//     .container {
-//         max-width: 720px;
-//     }
-// }
-
-// @media (min-width: 1200px) and (max-width: 1399px) {
-//     .container {
-//         max-width: 1140px;
-//     }
-// }
