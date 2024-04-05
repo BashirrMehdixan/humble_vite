@@ -3,7 +3,17 @@
     font-weight: 300;
     background-color: #2f333d;
     margin: 4rem 0;
-    padding: 4rem 0;
+
+    .invite-btn {
+        color: #fe9943;
+        font-weight: 600;
+    }
+
+    padding: 4rem 0 1rem 0;
+
+    .flex {
+        padding: 1.25rem 0;
+    }
 
     .title {
         padding-bottom: .8rem;
@@ -15,10 +25,6 @@
         line-height: 1.5rem;
     }
 
-    .invite-btn {
-        color: #fe9943;
-        font-weight: 600;
-    }
 
     .left-footer {
         width: 20%;
@@ -28,31 +34,112 @@
         width: 55%;
         padding: 0 1.5rem;
 
-        .flex {
-            align-items: center;
-            justify-content: space-between;
-
-            .middle-item {
-                width: calc(50% - 16px);
-            }
-        }
-
         .menu-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             padding-bottom: 1rem;
 
             li {
+                width: 50%;
                 padding: .5rem 0;
+                font-size: .9rem;
+                color: #d8d8da;
+                font-weight: 400;
 
-                a {
-                    font-size: .9rem;
-                    color: #d8d8da;
-                    font-weight: 400;
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
 
-                    &:hover {
-                        color: #fff;
+    .right-footer {
+        width: calc(25% - 32px);
+
+        .social-link {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1.5rem 0;
+            gap: 1rem;
+
+            li {
+                width: 2rem;
+                height: 2rem;
+                margin: 0 .188rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #7c828d;
+                border-radius: 50%;
+                transition: .3s linear;
+                line-height: 2rem;
+
+                svg {
+                    font-size: 1.1rem;
+                    color: #3c3f49;
+                    transition: .3s linear;
+                }
+
+                &:hover {
+                    background-color: #9ba1ad;
+
+                    svg {
+                        transform: rotateY(180deg);
                     }
                 }
             }
+        }
+
+        .inner-text {
+            font-size: .8rem;
+            color: #7c828d;
+            text-align: right;
+        }
+
+    }
+
+    .copyright {
+        font-size: .9rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .footer-container {
+        .invite-btn {
+            font-size: .8rem;
+        }
+
+        .inner-text {
+            padding: 1rem 0;
+        }
+
+        .left-footer, .middle-footer, .right-footer {
+            width: 100%;
+
+            &.middle-footer {
+                padding: 0;
+            }
+
+            .menu-list {
+                li {
+                    width: 100%;
+                    font-size: .8rem;
+                }
+            }
+
+            .social-link {
+                justify-content: flex-start;
+            }
+
+            .inner-text {
+                text-align: left;
+            }
+        }
+
+        .copyright {
+            font-size: .75rem;
         }
     }
 }

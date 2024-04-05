@@ -16,6 +16,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        min-height: 70px;
         background-color: #fff;
 
         .product-title {
@@ -63,6 +64,32 @@
         .product-img {
             img {
                 object-fit: fill;
+            }
+        }
+    }
+    .game-container {
+        .product-card {
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .bundle-item {
+        .bundle-img {
+            img {
+                object-fit: fill;
+            }
+        }
+    }
+    .game-container {
+        .product-card {
+            width: calc(50% - 16px);
+
+            .product-img {
+                img {
+                    object-fit: fill;
+                }
             }
         }
     }
