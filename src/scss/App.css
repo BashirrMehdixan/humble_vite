@@ -67,4 +67,28 @@ a.border-bottom::after {
   margin: 0 auto;
 }
 
+.not-found {
+  text-align: center;
+  color: #fff;
+}
+.not-found .found-img {
+  width: 30%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+.not-found .found-img img {
+  width: 100%;
+}
+.not-found .title {
+  font-size: 2rem;
+  padding: 1.5rem 0;
+}
+.not-found .inner-text {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+.not-found a {
+  color: #169fe3;
+}
+
 /*# sourceMappingURL=App.css.map */
