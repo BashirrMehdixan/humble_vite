@@ -37,11 +37,7 @@
 
 // Pages
 @import url(./partials/_home-banner.scss);
-
-
-body {
-    background-color: #494F5C;
-}
+@import url(./partials/_bundles.scss);
 
 .flex {
     display: flex;
