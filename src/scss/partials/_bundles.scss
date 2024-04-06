@@ -1,0 +1,36 @@
+.head-box {
+    .outlet-title {
+        width: 50%;
+        color: #d8d8da;
+
+        .uni-head {
+            padding: 10px 0;
+        }
+    }
+
+    .title-img {
+        width: 20%;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.page-list {
+    display: flex;
+    align-items: center;
+
+    li {
+        color: #fff;
+        background-color: #494F5C;
+        padding: 8px 15px;
+        border-radius: 18px;
+        margin-right: 8px;
+
+        &:has( > .active) {
+            background-color: #fff;
+            color: #282C34;
+        }
+    }
+}

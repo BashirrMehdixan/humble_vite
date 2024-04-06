@@ -6,10 +6,14 @@ import RootLayout from "./layouts/RootLayout";
 
 // Pages
 import Home from "/src/pages/home/Home";
-import Games from "/src/pages/products/Games";
-import GameDetail from "/src/pages/products/GameDetail";
-import Bundles from "/src/pages/products/Bundles";
-import BundleDetail from "/src/pages/products/BundleDetail";
+import Bundles from "/src/pages/bundles/Bundles";
+import BundleDetail from "/src/pages/bundles/BundleDetail";
+import Games from "/src/pages/games/Games";
+import GameDetail from "/src/pages/games/GameDetail";
+import Books from "/src/pages/books/Books";
+import BookDetail from "/src/pages/books/BookDetail";
+import Software from "/src/pages/software/Software";
+import SoftwareDetail from "/src/pages/software/SoftwareDetail";
 
 // CSS
 import "./scss/App.css";
@@ -24,8 +28,17 @@ const App = () => {
                     index: true,
                     element: <Home/>
                 },
+
                 {
-                    path: "/games",
+                    path: "bundles",
+                    element: <Bundles/>
+                },
+                {
+                    path: "bundles/:slug",
+                    element: <BundleDetail/>
+                },
+                {
+                    path: "games",
                     element: <Games/>
                 },
                 {
@@ -33,16 +46,23 @@ const App = () => {
                     element: <GameDetail/>
                 },
                 {
-                    path: "/bundles",
-                    element: <Bundles/>
+                    path: "books",
+                    element: <Books/>
                 },
                 {
-                    path: "/bundles/:slug",
-                    element: <BundleDetail/>
+                    path: "books/:slug",
+                    element: <BookDetail/>
+                },
+                {
+                    path: "software",
+                    element: <Software/>
+                },
+                {
+                    path: "software/:slug",
+                    element: <SoftwareDetail/>
                 }
             ]
         }
-
     ])
     return (
         <>

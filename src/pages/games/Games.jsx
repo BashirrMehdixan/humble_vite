@@ -1,7 +1,7 @@
 const Games = () => {
     return (
         <>
-            Products page
+           <div className="test">Salam netersen</div>
         </>
     )
 }

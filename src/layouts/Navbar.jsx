@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {NavLink, useLocation} from "react-router-dom";
 
 // Icons
-import { RiCloseFill } from "react-icons/ri";
-import { IoSearch, IoMenu } from 'react-icons/io5';
+import {RiCloseFill} from "react-icons/ri";
+import {IoSearch, IoMenu} from 'react-icons/io5';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(false);
     const [nav, setNav] = useState(false);
     useEffect(() => {
-        if (nav) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto"
-        }
-    })
+        document.body.style.overflow = nav ? "hidden" : "auto";
+    }, [nav])
+    const location = useLocation();
+    useEffect(() => {
+        document.body.style.backgroundColor = location.pathname === "/" ? "#494F5C" : "#272930";
+    }, [location])
     return (
         <>
             <div className={`overlay ${!nav && 'none'}`} onClick={() => setNav(!nav)}></div>
@@ -27,7 +27,7 @@ const Navbar = () => {
                         </NavLink>
                     </h2>
                     <button className="btn close-btn" onClick={() => setOpen(!open)}>
-                        <RiCloseFill />
+                        <RiCloseFill/>
                     </button>
                 </div>
                 <nav>
@@ -68,7 +68,7 @@ const Navbar = () => {
                                             placeholder="Search..."
                                         />
                                         <button className="btn search-btn">
-                                            <IoSearch />
+                                            <IoSearch/>
                                         </button>
                                     </div>
                                 </li>
@@ -87,7 +87,7 @@ const Navbar = () => {
                                     className="btn drp-btn"
                                     onClick={() => setNav(!nav)}
                                 >
-                                    <IoMenu />
+                                    <IoMenu/>
                                 </button>
                             </li>
                             <li className="nav-item">
@@ -100,7 +100,7 @@ const Navbar = () => {
                                         className="btn btn-search"
                                         onClick={() => setActive(!active)}
                                     >
-                                        <IoSearch />
+                                        <IoSearch/>
                                     </button>
                                 </div>
                             </li>
@@ -118,7 +118,7 @@ const Navbar = () => {
                                         className={"btn close-btn"}
                                         onClick={() => setNav(false)}
                                     >
-                                        <RiCloseFill />
+                                        <RiCloseFill/>
                                     </button>
                                 </li>
                                 <li className="navbar-item">

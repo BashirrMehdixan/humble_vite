@@ -3,7 +3,7 @@ import {useEffect, createContext, useState} from "react";
 export const GameContext = createContext();
 
 const GameProvider = ({children}) => {
-    const [games, setGames] = useState([]);
+    const [games, setGames] = useState(null);
     useEffect(() => {
         fetch("https://api.rawg.io/api/games?key=4c39d6d513e045ad818796f335e57fa8")
             .then(res => res.json())
