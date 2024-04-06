@@ -83,3 +83,32 @@ a {
     padding: 0 1rem;
     margin: 0 auto;
 }
+
+.not-found {
+    text-align: center;
+    color: #fff;
+
+    .found-img {
+        width: 30%;
+        margin: 0 auto;
+        padding: 1.5rem 0;
+        img {
+            width: 100%;
+        }
+
+    }
+
+    .title {
+        font-size: 2rem;
+        padding: 1.5rem 0;
+    }
+
+    .inner-text {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+
+    a {
+        color: #169fe3;
+    }
+}
