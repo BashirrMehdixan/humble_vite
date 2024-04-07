@@ -1,7 +1,9 @@
-import {NavLink, Outlet} from "react-router-dom";
-import {BundleCard} from "/src/components/Cards.jsx";
+import {useState} from "react";
+import {Link, Outlet} from "react-router-dom";
 
 const BundleLayout = () => {
+    const [active, setActive] = useState(false);
+    const [activePage, setActivePage] = useState("Bundles");
     return (
         <>
             <div className="container">
@@ -20,23 +22,42 @@ const BundleLayout = () => {
                             </p>
                         </div>
                         <div className="title-img">
-                            <img src={"./assets/images/animals/humble.png"} alt=""/>
+                            <img src={"/assets/images/animals/humble.png"} alt="Humble Bundle"/>
                         </div>
                     </div>
                     <ul className="page-list">
                         <li>
-                            <NavLink to={"/bundles"}>All Bundles</NavLink>
+                            <Link to={"/bundles"}>All Bundles</Link>
                         </li>
                         <li>
-                            <NavLink to={"/games"}>Games</NavLink>
+                            <Link to={"games"}>Games</Link>
                         </li>
                         <li>
-                            <NavLink to={"/books"}>Book</NavLink>
+                            <Link to={"books"}>Book</Link>
                         </li>
                         <li>
-                            <NavLink to={"/software"}>Software</NavLink>
+                            <Link to={"software"}>Software</Link>
                         </li>
                     </ul>
+                    <div
+                        className="active-page"
+                        onClick={() => setActive(!active)}>
+                        <span>Filter: {activePage}</span>
+                        <ul className="page-navigation" style={{'display': active ? 'block' : "none"}}>
+                            <li onClick={(event) => setActivePage(event.target.innerText)}>
+                                <Link to={"/bundles"}>All Bundles</Link>
+                            </li>
+                            <li onClick={(event) => setActivePage(event.target.innerText)}>
+                                <Link to={"games"}>Games</Link>
+                            </li>
+                            <li onClick={(event) => setActivePage(event.target.innerText)}>
+                                <Link to={"books"}>Books</Link>
+                            </li>
+                            <li onClick={(event) => setActivePage(event.target.innerText)}>
+                                <Link to={"software"}>Software</Link>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="page-outlet">
                     <Outlet/>

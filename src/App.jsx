@@ -33,7 +33,7 @@ const App = () => {
                     element: <BundleLayout/>,
                     children: [
                         {
-                            path: "bundles",
+                            index: true,
                             element: <Bundles/>
                         },
                         {
@@ -47,19 +47,19 @@ const App = () => {
                         {
                             path: "software",
                             element: <Software/>
-                        }
+                        },
                     ]
                 },
                 {
-                    path: "/games/:slug",
+                    path: "/bundles/games/:slug",
                     element: <GameDetail/>
                 },
                 {
-                    path: "/books/:slug",
+                    path: "/bundles/books/:slug",
                     element: <BookDetail/>
                 },
                 {
-                    path: "software/:slug",
+                    path: "/bundles/software/:slug",
                     element: <SoftwareDetail/>
                 },
                 {

@@ -34,3 +34,16 @@
         }
     }
 }
+
+@media only screen and (max-width: 767px) {
+    .pages-header {
+        .head-box {
+            flex-direction: column-reverse;
+
+            .outlet-title, .title-img {
+                width: 100%;
+                padding: 1rem 0;
+            }
+        }
+    }
+}

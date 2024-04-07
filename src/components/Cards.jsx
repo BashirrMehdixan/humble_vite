@@ -38,12 +38,12 @@ export const GameCard = ({game}) => {
 }
 
 
-export const BundleCard = ({bundle}) => {
+export const BundleCard = ({bundle, path}) => {
     return (
         <>
             <div className="bundle-item">
                 <div className="bundle-img">
-                    <Link to={`/bundles/${bundle.slug}`}>
+                    <Link to={`/bundles/${path}/${bundle.slug}`}>
                         <img src={bundle.background_image} alt={bundle.name}/>
                         <div className="bundle-overlay"></div>
                         <div className="bundle-details">
@@ -62,7 +62,7 @@ export const BundleCard = ({bundle}) => {
                 </div>
                 <div className="bundle-info">
                     <h4 className="bundle-title">
-                        <Link to={`/bundles/${bundle.slug}`} className={"border-bottom"}>{bundle.name}</Link>
+                        <Link to={`/bundles/${path}/${bundle.slug}`} className={"border-bottom"}>{bundle.name}</Link>
                     </h4>
                     <p className="time-left">
                         20 DAYS LEFT

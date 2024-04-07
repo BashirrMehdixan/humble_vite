@@ -91,4 +91,34 @@ a.border-bottom::after {
   color: #169fe3;
 }
 
+.active-page {
+  display: none;
+  position: relative;
+  max-width: 100%;
+  color: #d8d8da;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d8d8da;
+}
+.active-page .page-navigation {
+  position: absolute;
+  width: 100%;
+  background-color: #282C34;
+  border: 1px solid #7c828d;
+  left: 0;
+  top: 32px;
+  z-index: 1;
+}
+.active-page .page-navigation li {
+  padding: 0.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .page-list {
+    display: none;
+  }
+  .active-page {
+    display: block;
+  }
+}
+
 /*# sourceMappingURL=App.css.map */
