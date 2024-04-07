@@ -92,6 +92,7 @@ a {
         width: 30%;
         margin: 0 auto;
         padding: 1.5rem 0;
+
         img {
             width: 100%;
         }
@@ -110,5 +111,37 @@ a {
 
     a {
         color: #169fe3;
+    }
+}
+
+.active-page {
+    display: none;
+    position: relative;
+    max-width: 100%;
+    color: #d8d8da;
+    padding: .25rem .5rem;
+    border: 1px solid #d8d8da;
+
+    .page-navigation {
+        position: absolute;
+        width: 100%;
+        background-color: #282C34;
+        border: 1px solid #7c828d;
+        left: 0;
+        top: 32px;
+        z-index: 1;
+
+        li {
+            padding: .5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .page-list {
+        display: none;
+    }
+    .active-page {
+        display: block;
     }
 }
