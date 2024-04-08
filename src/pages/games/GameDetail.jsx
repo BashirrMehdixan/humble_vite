@@ -1,16 +1,67 @@
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {useParams} from "react-router-dom";
 import {GameContext} from "/src/context/Games/GameContext";
 
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {FreeMode, Navigation, Thumbs} from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+
 const GameDetail = () => {
-    const {slug} = useParams();
     const {games} = useContext(GameContext);
+    const {slug} = useParams();
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const game = games ? games.find(item => item.slug === slug) : "";
+    console.log(game)
     return (
         game &&
         <>
             <div className="container">
-                <img src={game.background_image} alt=""/>
+                <div className="game-detail">
+                    <div className="head-box">
+                        <h3 className="game-title">
+                            {game.name}
+                        </h3>
+                    </div>
+                    <Swiper
+                        loop={true}
+                        spaceBetween={10}
+                        navigation={true}
+                        thumbs={{swiper: thumbsSwiper}}
+                        modules={[FreeMode, Navigation, Thumbs]}
+                        className="uni-slide detail-swiper"
+                    >
+                        {game.short_screenshots.map((screenshot, index) => {
+                            return (
+                                <SwiperSlide key={index}>
+                                    <img src={screenshot.image} alt={game.title}/>
+                                </SwiperSlide>
+                            )
+                        })}
+                    </Swiper>
+                    <Swiper
+                        onSwiper={setThumbsSwiper}
+                        loop={true}
+                        spaceBetween={10}
+                        slidesPerView={4}
+                        freeMode={true}
+                        watchSlidesProgress={true}
+                        modules={[FreeMode, Navigation, Thumbs]}
+                        className="detail-nav"
+                    >
+                        {game.short_screenshots.map((screenshot, index) => {
+                            return (
+                                <SwiperSlide key={index}>
+                                    <img src={screenshot.image} alt={game.title}/>
+                                </SwiperSlide>
+                            )
+                        })}
+                    </Swiper>
+                </div>
             </div>
         </>
     )

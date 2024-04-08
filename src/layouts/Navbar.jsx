@@ -37,7 +37,7 @@ const Navbar = () => {
                                 <li className={"logo-item"}>
                                     <NavLink to={'/'} className={"logo"}>
                                         <img
-                                            src={'../assets/images/logo-white.svg'}
+                                            src={'/assets/images/logo-white.svg'}
                                             alt="Humble Bundle Logo"
                                         />
                                     </NavLink>
@@ -107,7 +107,7 @@ const Navbar = () => {
                             <li className={"logo-item"}>
                                 <NavLink to={"/"} className={`logo ${active && "none"}`}>
                                     <img
-                                        src={"../assets/images/logo-white.svg"}
+                                        src={"/assets/images/logo-white.svg"}
                                         alt="Humble Bundle"
                                     />
                                 </NavLink>

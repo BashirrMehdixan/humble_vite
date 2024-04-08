@@ -36,7 +36,7 @@ const Featured = () => {
                                 spaceBetween: 50,
                             },
                         }}
-                        className="game-slide"
+                        className="uni-slide game-slide"
                     >{games.map((game, index) => {
                         return (
                             <SwiperSlide key={index}>

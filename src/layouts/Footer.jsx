@@ -13,7 +13,7 @@ const Footer = () => {
                         <div className="flex">
                             <div className="left-footer">
                                 <div className="logo">
-                                    <img src={"../assets/images/logo-white.svg"} alt="Humble Bundle Logo"/>
+                                    <img src={"/assets/images/logo-white.svg"} alt="Humble Bundle Logo"/>
                                 </div>
                                 <p className="inner-text">
                                     Get up to US$12 Wallet Credit to spend on your next store purchase!

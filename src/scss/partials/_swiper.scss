@@ -25,7 +25,7 @@ html, body, .container {
     margin-right: auto;
 }
 
-.game-slide {
+.uni-slide {
     .swiper-button-next, .swiper-button-prev {
         color: #fff;
         background-color: #3b3e48;
@@ -43,4 +43,25 @@ html, body, .container {
             opacity: 1;
         }
     }
+}
+
+.detail-swiper {
+    height: 80%;
+    width: 100%;
+}
+
+.detail-nav {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.detail-nav .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.detail-nav .swiper-slide-thumb-active {
+    opacity: 1;
 }
