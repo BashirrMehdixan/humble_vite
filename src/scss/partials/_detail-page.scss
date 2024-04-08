@@ -1,3 +1,13 @@
 .game-detail {
     padding: 2rem 0;
 }
+
+.detail-list {
+    display: flex;
+    color: #fff;
+    padding-bottom: 2rem;
+
+    li {
+        margin-right: 1rem
+    }
+}
