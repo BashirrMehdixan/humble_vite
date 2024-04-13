@@ -3,11 +3,139 @@
 }
 
 .detail-list {
-    display: flex;
     color: #fff;
+    padding-bottom: .9rem;
+
+    .left-item, .right-item {
+        width: calc(50% - 1rem);
+
+        li {
+            font-size: .85rem;
+        }
+    }
+}
+
+.genres-list {
     padding-bottom: 2rem;
 
     li {
-        margin-right: 1rem
+        position: relative;
+        padding: .85rem 1rem 0 0;
+
+        &:not(:last-child)::after {
+            position: absolute;
+            content: "";
+            width: 1px;
+            height: 60%;
+            background-color: #fff;
+            top: 45%;
+            right: 0;
+
+        }
+    }
+}
+
+.game-info {
+    color: #fff;
+
+    .inner-text {
+        padding-bottom: 1rem;
+
+        p {
+            padding: 1rem 0;
+            color: rgba(245, 245, 245, 0.6);
+        }
+    }
+
+    .small-title {
+        font-weight: 500;
+
+    }
+
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding-bottom: 1.5rem;
+
+        .tag-item {
+            width: calc(25% - 1rem);
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(38, 38, 38);
+            padding: 1rem;
+
+            p:first-child {
+                font-size: .75rem;
+                padding-bottom: .75rem;
+            }
+
+            p:not(:first-child) {
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    .system-requirement {
+        .small-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            padding: 1rem 0 1.5rem 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .game-detail {
+        .game-title {
+            font-size: 1.3rem;
+        }
+    }
+    .detail-list {
+
+        .left-item, .right-item {
+            width: 100%;
+
+            .genres-list {
+                li:not(:last-child)::after {
+                    width: 0;
+                }
+            }
+        }
+    }
+
+    .game-info {
+        .tag-list {
+
+            .tag-item {
+                width: 100%;
+            }
+        }
+
+        .system-requirement {
+            .small-title {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .game-info {
+        .tag-list {
+
+            .tag-item {
+                width: calc(50% - 16px);
+            }
+        }
+
+        .system-requirement {
+            .small-title {
+                font-size: 1rem;
+            }
+        }
     }
 }
