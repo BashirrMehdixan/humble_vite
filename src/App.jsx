@@ -17,6 +17,7 @@ import NotFound from "/src/pages/NotFound";
 
 // CSS
 import "./scss/App.css";
+import Register from "./pages/register/Register.jsx";
 
 const App = () => {
     const router = createBrowserRouter([
@@ -61,6 +62,10 @@ const App = () => {
                 {
                     path: "/bundles/software/:slug",
                     element: <GameDetail/>
+                },
+                {
+                    path: "/register",
+                    element: <Register/>
                 },
                 {
                     path: "*",
