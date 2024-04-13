@@ -56,11 +56,11 @@ const App = () => {
                 },
                 {
                     path: "/bundles/books/:slug",
-                    element: <BookDetail/>
+                    element: <GameDetail/>
                 },
                 {
                     path: "/bundles/software/:slug",
-                    element: <SoftwareDetail/>
+                    element: <GameDetail/>
                 },
                 {
                     path: "*",

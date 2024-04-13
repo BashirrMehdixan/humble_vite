@@ -13,7 +13,7 @@ const Books = () => {
                     </h4>
                 </div>
                 <div className="flex">
-                    {games.map((game, index) => <BundleCard key={index} bundle={game}/>)}
+                    {games.map((game, index) => <BundleCard key={index} bundle={game} path={"books"}/>)}
                 </div>
             </div>
         </>
