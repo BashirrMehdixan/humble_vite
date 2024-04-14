@@ -1,23 +1,23 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Layouts
 import RootLayout from "/src/layouts/RootLayout";
-import BundleLayout from "/src/layouts/BundleLayout.jsx";
+import BundleLayout from "/src/layouts/BundleLayout";
+
 // Pages
 import Home from "/src/pages/home/Home";
 import Bundles from "/src/pages/bundles/Bundles";
 import Games from "/src/pages/games/Games";
 import GameDetail from "/src/pages/games/GameDetail";
 import Books from "/src/pages/books/Books";
-import BookDetail from "/src/pages/books/BookDetail";
 import Software from "/src/pages/software/Software";
-import SoftwareDetail from "/src/pages/software/SoftwareDetail";
+import Register from "./pages/register/Register";
 import NotFound from "/src/pages/NotFound";
 
 // CSS
 import "./scss/App.css";
-import Register from "./pages/register/Register.jsx";
 
 const App = () => {
     const router = createBrowserRouter([
@@ -68,6 +68,10 @@ const App = () => {
                     element: <Register/>
                 },
                 {
+                    path: "/login",
+                    element: <Register/>
+                },
+                {
                     path: "*",
                     element: <NotFound/>
                 }
@@ -77,7 +81,18 @@ const App = () => {
     return (
         <>
             <RouterProvider router={router}/>
-            <ToastContainer/>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
     )
 }

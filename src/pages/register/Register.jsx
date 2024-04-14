@@ -1,40 +1,66 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
+import {Link, useLocation} from "react-router-dom";
+import {useForm} from "react-hook-form";
+import pb from "/src/store/pocketbase";
 import {AuthContext} from "/src/context/Auth/AuthContext";
+import {toast} from "react-toastify";
 
 const Register = () => {
-    const {users, setUsers} = useContext(AuthContext);
-    const [data, setData] = useState("");
-    const formData = (e) => {
-        const name = e.target.name;
-        const val = e.target.value;
-        setData({...data, [name]: val});
+    const location = useLocation();
+    const {register, handleSubmit} = useForm();
+    const login = async (data) => {
+        try {
+            const authData = await pb.collection('users').authWithPassword(data.email, data.password);
+            toast.success("Welcome", data.email)
+        } catch (e) {
+            console.log(e);
+            toast.error(e)
+        }
     }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch("https://dummyjson.com/users/add", {
-            method: "POST",
-            body: JSON.stringify({
-                name: data.name,
-                password: data.password,
-                email: data.email
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then(json => setUsers([...users, json]));
-        console.log(users)
-
+    const signup = async (data) => {
+        try {
+            console.log("salam")
+            toast.success("Welcome", data.email)
+        } catch (e) {
+            console.log(e);
+            toast.error(e)
+        }
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name={"name"} onChange={formData}/><br/>
-                <input type="email" name={"email"} onChange={formData}/> <br/>
-                <input type="password" name={"password"} onChange={formData}/>
-                <button type={"submit"}>Submit</button>
-            </form>
+            <div className="container">
+                <div className="register-box">
+                    <form onSubmit={location.pathname === "/login" ? handleSubmit(login) : handleSubmit(signup)}>
+                        <div className="form-group">
+                            <input
+                                type="email"
+                                className={"form-control"}
+                                placeholder={"Email"}
+                                {...register("email")}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="password"
+                                className={"form-control"}
+                                placeholder={"Password"}
+                                {...register("password")}
+                            />
+                        </div>
+                        <button
+                            className="btn btn-blue"> {location.pathname === "/register" ? "Sign up" : "Sign in"}</button>
+                    </form>
+                    {location.pathname === "/register" ?
+                        <div className={"register-text"}>
+                            Already have an account? <Link to={"/login"}>Log in</Link>
+                        </div>
+                        :
+                        <div className={"register-text"}>
+                            Don&apos;t have an account? <Link to={"/register"}>Sign up</Link>
+                        </div>
+                    }
+                </div>
+            </div>
         </>
     )
 }

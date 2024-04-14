@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {BundleCard} from "/src/components/Cards.jsx";
+import {BundleCard} from "/src/components/Cards";
 import {GameContext} from "/src/context/Games/GameContext";
 
 const Games = () => {
