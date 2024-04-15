@@ -119,14 +119,20 @@ nav {
             gap: 10px;
             flex: 1;
 
-            .right-nav-item:first-child {
-                max-width: 400px;
-                flex-grow: 1;
-                flex-shrink: 1;
-                height: auto;
-                margin-left: auto;
-                overflow: visible;
-                padding: 0 1rem 0 0;
+            .right-nav-item {
+                cursor: pointer;
+                svg {
+                    font-size: 1.8rem;
+                }
+                &:first-child {
+                    max-width: 400px;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    height: auto;
+                    margin-left: auto;
+                    overflow: visible;
+                    padding: 0 1rem 0 0;
+                }
             }
         }
 

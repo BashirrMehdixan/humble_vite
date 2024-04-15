@@ -1,11 +1,14 @@
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import {NavLink, useLocation} from "react-router-dom";
+import {AuthContext} from "/src/context/Auth/AuthContext";
 
 // Icons
 import {RiCloseFill} from "react-icons/ri";
+import {FaRegUserCircle} from "react-icons/fa";
 import {IoSearch, IoMenu} from 'react-icons/io5';
 
 const Navbar = () => {
+    const {isValid} = useContext(AuthContext);
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(false);
     const [nav, setNav] = useState(false);
@@ -72,11 +75,15 @@ const Navbar = () => {
                                         </button>
                                     </div>
                                 </li>
-                                <li className="right-nav-item">
+
+                                <li className={`right-nav-item ${isValid && 'none'}`}>
                                     <NavLink to={"register"}>Sign up</NavLink>
                                 </li>
-                                <li className="right-nav-item">
+                                <li className={`right-nav-item ${isValid && 'none'}`}>
                                     <NavLink to={"login"}>Sign in</NavLink>
+                                </li>
+                                <li className={`right-nav-item ${!isValid && 'none'}`}>
+                                    <FaRegUserCircle/>
                                 </li>
                             </ul>
                         </div>
