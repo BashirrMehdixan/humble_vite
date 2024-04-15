@@ -1,6 +1,6 @@
 import {useEffect, createContext, useState} from "react";
 
-export const GameContext = createContext();
+export const GameContext = createContext(undefined);
 
 const GameProvider = ({children}) => {
     const [games, setGames] = useState(null);

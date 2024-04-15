@@ -14,6 +14,7 @@ import GameDetail from "/src/pages/games/GameDetail";
 import Books from "/src/pages/books/Books";
 import Software from "/src/pages/software/Software";
 import Register from "./pages/register/Register";
+import Login from "./pages/register/Login";
 import NotFound from "/src/pages/NotFound";
 
 // CSS
@@ -69,7 +70,7 @@ const App = () => {
                 },
                 {
                     path: "/login",
-                    element: <Register/>
+                    element: <Login/>
                 },
                 {
                     path: "*",
