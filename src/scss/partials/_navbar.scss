@@ -120,10 +120,13 @@ nav {
             flex: 1;
 
             .right-nav-item {
+                position: relative;
                 cursor: pointer;
+
                 svg {
                     font-size: 1.8rem;
                 }
+
                 &:first-child {
                     max-width: 400px;
                     flex-grow: 1;
@@ -132,6 +135,20 @@ nav {
                     margin-left: auto;
                     overflow: visible;
                     padding: 0 1rem 0 0;
+                }
+
+                .profile-list {
+                    position: absolute;
+                    width: 160px;
+                    background-color: #2f333d;
+                    padding: .85rem;
+                    top: 0;
+                    right: 0;
+                    transform: translate(2rem, 2.5rem);
+
+                    li {
+                        padding: .85rem;
+                    }
                 }
             }
         }

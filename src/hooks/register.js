@@ -37,11 +37,21 @@ export const RegisterFunctions = () => {
         }
     }
 
+    const changeEmail = async (data) => {
+        try {
+            const record = await pb.collection('users').update(pb.authStore.model.id, {email: data.email});
+            toast.success("Your e-mail changed successfully");
+        } catch (e) {
+            toast.error(e.message);
+            console.log(e);
+        }
+    }
+
     const logout = () => {
         toast.success(`You have logged out!`);
         pb.authStore.clear();
         setIsValid(pb.authStore.isValid);
         navigate("/login");
     }
-    return {signup, login, logout}
+    return {signup, login, logout, changeEmail}
 }

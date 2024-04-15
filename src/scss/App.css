@@ -11,6 +11,7 @@
 @import url(./partials/_bundles.scss);
 @import url(./partials/_detail-page.scss);
 @import url(./partials/_register.scss);
+@import url(./partials/_settings.scss);
 * {
   font-size: 1rem;
   font-family: "Rubik", "Helvetica Neue", Helvetica, Arial, sans-serif;

@@ -13,8 +13,9 @@ import Games from "/src/pages/games/Games";
 import GameDetail from "/src/pages/games/GameDetail";
 import Books from "/src/pages/books/Books";
 import Software from "/src/pages/software/Software";
-import Register from "./pages/register/Register";
-import Login from "./pages/register/Login";
+import Register from "/src/pages/register/Register";
+import Login from "/src/pages/register/Login";
+import Dashboard from "/src/pages/profile/Dashboard";
 import NotFound from "/src/pages/NotFound";
 
 // CSS
@@ -71,6 +72,10 @@ const App = () => {
                 {
                     path: "/login",
                     element: <Login/>
+                },
+                {
+                    path: "/settings",
+                    element: <Dashboard/>
                 },
                 {
                     path: "*",
