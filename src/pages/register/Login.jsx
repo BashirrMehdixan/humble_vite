@@ -2,7 +2,7 @@ import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {AuthContext} from "/src/context/Auth/AuthContext";
-import {RegisterFunctions} from "/src/features/register";
+import {RegisterFunctions} from "/src/hooks/register";
 
 const Login = () => {
     const {register, handleSubmit, reset} = useForm();

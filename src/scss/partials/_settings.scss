@@ -1,0 +1,22 @@
+.settings-box {
+    padding: 1.45rem 0;
+
+    .uni-head {
+        font-size: 1.45rem;
+        color: #d8d8da;
+    }
+
+    .settings-item {
+        background-color: #D5D9E1;
+
+        .form-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-select {
+            background-color: #fff;
+            color: #2f333d;
+        }
+    }
+}

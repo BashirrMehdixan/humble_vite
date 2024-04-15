@@ -13,7 +13,6 @@ const AuthProvider = ({children}) => {
         }
         getGames()
     }, [])
-    console.log(users)
     return (
         <AuthContext.Provider value={{users, setUsers, isValid, setIsValid}}>
             {children}

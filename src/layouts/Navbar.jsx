@@ -1,6 +1,7 @@
 import {useEffect, useState, useContext} from "react";
-import {NavLink, useLocation} from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
 import {AuthContext} from "/src/context/Auth/AuthContext";
+import {RegisterFunctions} from "/src/hooks/register";
 
 // Icons
 import {RiCloseFill} from "react-icons/ri";
@@ -8,14 +9,20 @@ import {FaRegUserCircle} from "react-icons/fa";
 import {IoSearch, IoMenu} from 'react-icons/io5';
 
 const Navbar = () => {
+    const location = useLocation();
+    const {logout} = RegisterFunctions();
     const {isValid} = useContext(AuthContext);
+
+    // states
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(false);
     const [nav, setNav] = useState(false);
+    const [profile, setProfile] = useState(false);
+
+
     useEffect(() => {
         document.body.style.overflow = nav ? "hidden" : "auto";
     }, [nav])
-    const location = useLocation();
     useEffect(() => {
         document.body.style.backgroundColor = location.pathname === "/" ? "#494F5C" : "#272930";
     }, [location])
@@ -77,13 +84,27 @@ const Navbar = () => {
                                 </li>
 
                                 <li className={`right-nav-item ${isValid && 'none'}`}>
-                                    <NavLink to={"register"}>Sign up</NavLink>
+                                    <NavLink to={"/register"}>Sign up</NavLink>
                                 </li>
                                 <li className={`right-nav-item ${isValid && 'none'}`}>
-                                    <NavLink to={"login"}>Sign in</NavLink>
+                                    <NavLink to={"/login"}>Sign in</NavLink>
                                 </li>
-                                <li className={`right-nav-item ${!isValid && 'none'}`}>
-                                    <FaRegUserCircle/>
+                                <li className={`relative right-nav-item ${!isValid && 'none'}`}>
+                                    <FaRegUserCircle onClick={() => setProfile(!profile)}/>
+                                    <ul className={`profile-list ${!profile && "none"}`}>
+                                        <li>
+                                            <Link to={"/wishlist"}>Wishlist</Link>
+                                        </li>
+                                        <li>
+                                            <Link to={"/wallet"}>Wallet</Link>
+                                        </li>
+                                        <li>
+                                            <Link to={"/settings"}>Settings</Link>
+                                        </li>
+                                        <li onClick={logout}>
+                                            Logout
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
