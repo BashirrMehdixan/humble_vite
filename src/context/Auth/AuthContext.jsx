@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from "react";
-import pb from "/src/store/pocketbase";
+import pb, {currentUser} from "/src/store/pocketbase";
 
 export const AuthContext = createContext();
 
