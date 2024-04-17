@@ -1,7 +1,7 @@
 import {useEffect, useState, useContext} from "react";
 import {Link, NavLink, useLocation} from "react-router-dom";
 import {AuthContext} from "/src/context/Auth/AuthContext";
-import {RegisterFunctions} from "/src/hooks/register";
+import {AuthHooks} from "/src/hooks/AuthHooks";
 
 // Icons
 import {RiCloseFill} from "react-icons/ri";
@@ -10,7 +10,7 @@ import {IoSearch, IoMenu} from 'react-icons/io5';
 
 const Navbar = () => {
     const location = useLocation();
-    const {logout} = RegisterFunctions();
+    const {logout} = AuthHooks();
     const {isValid} = useContext(AuthContext);
 
     // states

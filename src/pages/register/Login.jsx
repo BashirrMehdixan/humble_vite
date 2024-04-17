@@ -2,15 +2,14 @@ import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {AuthContext} from "/src/context/Auth/AuthContext";
-import {RegisterFunctions} from "/src/hooks/register";
+import {AuthHooks} from "/src/hooks/AuthHooks";
 
 const Login = () => {
-    const {register, handleSubmit, reset} = useForm();
-    const {login, logout} = RegisterFunctions();
     const {isValid} = useContext(AuthContext);
-    const onSubmit = async (data) => {
-        await login(data);
-        reset();
+    const {register, handleSubmit} = useForm();
+    const {login, logout} = AuthHooks();
+    const onSubmit = (data) => {
+        login(data);
     }
     return (
         <>
@@ -33,9 +32,10 @@ const Login = () => {
                                 {...register("password")}
                             />
                         </div>
-                        <button
-                            className="btn btn-blue">Log in
-                        </button>
+                        <div className="flex button-box">
+                            <button className="btn btn-blue">Log in</button>
+                            <Link to={"/reset-password"} className="btn btn-blue">Forget password?</Link>
+                        </div>
                     </form>
                     <div className={"register-text"}>
                         Don&apos;t have an account? <Link to={"/register"}>Sign up</Link>
