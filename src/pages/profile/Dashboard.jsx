@@ -1,11 +1,12 @@
 import {useForm} from "react-hook-form";
-import pb, {currentUser} from "/src/store/pocketbase";
-import {RegisterFunctions} from "/src/hooks/register";
+import {currentUser} from "/src/store/pocketbase";
+import {AuthHooks} from "/src/hooks/AuthHooks";
 import {toast} from "react-toastify";
 
 const Dashboard = () => {
     const {register, handleSubmit} = useForm();
-    const {changeEmail, verifyEmail} = RegisterFunctions();
+    const {changeEmail, verifyEmail, mutate} = AuthHooks();
+    console.log(mutate)
     const onSubmit = async (data) => {
         if (data.email) {
             await changeEmail(data);

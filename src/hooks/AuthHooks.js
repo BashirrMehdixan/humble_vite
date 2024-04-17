@@ -2,51 +2,58 @@ import {useContext} from "react";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {toast} from "react-toastify";
-import pb, {currentUser} from "../store/pocketbase.js";
+import pb, {currentUser, users} from "../store/pocketbase.js";
 import {AuthContext} from "/src/context/Auth/AuthContext";
 
-export const RegisterFunctions = () => {
+export const AuthHooks = () => {
     const navigate = useNavigate();
-    const {isValid, setIsValid} = useContext(AuthContext);
+    const {setIsValid} = useContext(AuthContext);
     const {reset} = useForm();
 
     const signup = async (data) => {
         try {
-            const record = await pb.collection('users').create({
-                username: data.username,
-                email: data.email,
-                password: data.password,
-                passwordConfirm: data.passwordConfirm
-            });
-            await pb.collection('users').requestVerification(data.email);
-            toast.success(`Nice to meet you ${record.username}`);
-            navigate("/");
-            reset();
+            if (data.password === data.passwordConfirm) {
+                const record = await pb.collection('users').create({
+                    username: data.username,
+                    email: data.email,
+                    password: data.password,
+                    passwordConfirm: data.password
+                });
+                await pb.collection('users').requestVerification(data.email);
+                toast.success(`Nice to meet you ${record.username}`);
+                navigate("/");
+                reset();
+            } else {
+                toast.error("Your password does not match!");
+            }
         } catch (e) {
             toast.error(e.message)
         }
     }
+
+
     const login = async (data) => {
         try {
             const authData = await pb.collection('users').authWithPassword(data.email, data.password);
             setIsValid(pb.authStore.isValid);
             toast.success(`Welcome back, ${authData.record.username}`);
-            console.log(isValid)
             navigate("/")
             reset();
         } catch (e) {
             toast.error(e.message)
         }
     }
+
     const verifyEmail = async () => {
         try {
-            await pb.collection('users').requestVerification(currentUser.email);
             toast.success("Email sent");
-            return true;
+            return await pb.collection('users').requestVerification(currentUser.email);
+            ;
         } catch (e) {
             console.log(e)
         }
     }
+
     const changeEmail = async (data) => {
         try {
             await pb.collection('users').requestEmailChange(data.email);
@@ -61,11 +68,23 @@ export const RegisterFunctions = () => {
         }
     }
 
+    const resetRequest = async (data) => {
+        try {
+            if (users.find(item => item.email === data.email)) {
+                toast.success(`Reset email sent to ${data.email}`);
+                return await pb.collection('users').requestPasswordReset(data.email);
+            } else {
+                return toast.error(`${data.email} not found`);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
     const logout = () => {
         pb.authStore.clear();
-        setIsValid(currentUser.isValid);
+        setIsValid(pb.authStore.isValid);
         toast.success(`You have logged out!`);
         navigate("/login");
     }
-    return {signup, login, logout, changeEmail, verifyEmail}
+    return {signup, login, logout, changeEmail, verifyEmail, resetRequest}
 }

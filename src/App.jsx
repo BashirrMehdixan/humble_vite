@@ -15,6 +15,7 @@ import Books from "/src/pages/books/Books";
 import Software from "/src/pages/software/Software";
 import Register from "/src/pages/register/Register";
 import Login from "/src/pages/register/Login";
+import ResetPassword from "/src/pages/register/ResetPassword";
 import Dashboard from "/src/pages/profile/Dashboard";
 import NotFound from "/src/pages/NotFound";
 
@@ -76,6 +77,10 @@ const App = () => {
                 {
                     path: "/settings",
                     element: <Dashboard/>
+                },
+                {
+                    path: "/reset-password",
+                    element: <ResetPassword/>
                 },
                 {
                     path: "*",
