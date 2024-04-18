@@ -1,21 +1,22 @@
 import {useForm} from "react-hook-form";
-import {currentUser} from "/src/store/pocketbase";
-import {AuthHooks} from "/src/hooks/AuthHooks";
 import {toast} from "react-toastify";
+import FirebaseAuth from "/src/hooks/FirebaseAuth";
+import {useSelector} from "react-redux";
 
 const Dashboard = () => {
     const {register, handleSubmit} = useForm();
-    const {changeEmail, verifyEmail, mutate} = AuthHooks();
-    console.log(mutate)
+    const currentUser = useSelector(state => state.auth.user);
+    const {verifyEmail,changeEmail} = FirebaseAuth();
     const onSubmit = async (data) => {
+        console.log(data.email)
         if (data.email) {
             await changeEmail(data);
         } else {
             toast.error("Error");
         }
     }
-console.log(currentUser)
     return (
+        currentUser &&
         <>
             <div className="container">
                 <div className="settings-box">
@@ -23,7 +24,9 @@ console.log(currentUser)
                         <h3 className="uni-head">
                             Account Information
                         </h3>
-                        {!currentUser.verified && <button className={"btn btn-blue"} onClick={verifyEmail}>Verify email</button>}
+                        {!currentUser.emailVerified &&
+                            <button className={"btn btn-blue"} onClick={verifyEmail}>Verify email</button>
+                        }
                     </div>
                     <div className="settings-item">
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -34,8 +37,8 @@ console.log(currentUser)
                                     </label>
                                     <input
                                         type="email"
-                                        defaultValue={currentUser.email}
                                         className={"form-control"}
+                                        defaultValue={currentUser.email}
                                         id={"email"}
                                         {...register("email")}
                                     />

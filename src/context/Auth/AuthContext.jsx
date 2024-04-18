@@ -1,5 +1,5 @@
 import {createContext, useEffect, useState} from "react";
-import pb, {currentUser} from "/src/store/pocketbase";
+import pb from "/src/store/pocketbase";
 
 export const AuthContext = createContext();
 
@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
         }
         getGames()
     }, [])
+    ;
     return (
         <AuthContext.Provider value={{users, setUsers, isValid, setIsValid}}>
             {children}
