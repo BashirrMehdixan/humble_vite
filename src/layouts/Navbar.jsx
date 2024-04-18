@@ -1,7 +1,8 @@
-import {useEffect, useState, useContext} from "react";
+import {useEffect, useState} from "react";
 import {Link, NavLink, useLocation} from "react-router-dom";
-import {AuthContext} from "/src/context/Auth/AuthContext";
-import {AuthHooks} from "/src/hooks/AuthHooks";
+import {useDispatch, useSelector} from "react-redux";
+import FirebaseAuth from "/src/hooks/FirebaseAuth";
+import {logoutAction} from "/src/features/auth"
 
 // Icons
 import {RiCloseFill} from "react-icons/ri";
@@ -9,9 +10,15 @@ import {FaRegUserCircle} from "react-icons/fa";
 import {IoSearch, IoMenu} from 'react-icons/io5';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const currentUser = useSelector(state => state.auth.user);
     const location = useLocation();
-    const {logout} = AuthHooks();
-    const {isValid} = useContext(AuthContext);
+    const {logout} = FirebaseAuth();
+
+    const handleLogout = async () => {
+        const user = await logout();
+        dispatch(logoutAction(user))
+    }
 
     // states
     const [open, setOpen] = useState(false);
@@ -83,13 +90,13 @@ const Navbar = () => {
                                     </div>
                                 </li>
 
-                                <li className={`right-nav-item ${isValid && 'none'}`}>
+                                <li className={`right-nav-item ${currentUser && 'none'}`}>
                                     <NavLink to={"/register"}>Sign up</NavLink>
                                 </li>
-                                <li className={`right-nav-item ${isValid && 'none'}`}>
+                                <li className={`right-nav-item ${currentUser && 'none'}`}>
                                     <NavLink to={"/login"}>Sign in</NavLink>
                                 </li>
-                                <li className={`relative right-nav-item ${!isValid && 'none'}`}>
+                                <li className={`relative right-nav-item ${!currentUser && 'none'}`}>
                                     <FaRegUserCircle onClick={() => setProfile(!profile)}/>
                                     <ul className={`profile-list ${!profile && "none"}`}>
                                         <li>
@@ -101,7 +108,7 @@ const Navbar = () => {
                                         <li>
                                             <Link to={"/settings"}>Settings</Link>
                                         </li>
-                                        <li onClick={logout}>
+                                        <li onClick={handleLogout}>
                                             Logout
                                         </li>
                                     </ul>

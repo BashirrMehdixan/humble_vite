@@ -1,21 +1,27 @@
-import {useContext} from "react";
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
-import {AuthContext} from "/src/context/Auth/AuthContext";
-import {AuthHooks} from "/src/hooks/AuthHooks";
+import FirebaseAuth from "/src/hooks/FirebaseAuth";
+
+import {loginAction} from "/src/features/auth";
+
 
 const Login = () => {
-    const {isValid} = useContext(AuthContext);
+    const dispatch = useDispatch();
     const {register, handleSubmit} = useForm();
-    const {login, logout} = AuthHooks();
-    const onSubmit = (data) => {
-        login(data);
+    const {login} = FirebaseAuth();
+
+    const handleLogin = async (data) => {
+        const user = await login(data);
+        if (user) {
+            dispatch(loginAction(user))
+        }
     }
     return (
         <>
             <div className="container">
                 <div className="register-box">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(handleLogin)}>
                         <div className="form-group">
                             <input
                                 type="email"
@@ -40,7 +46,6 @@ const Login = () => {
                     <div className={"register-text"}>
                         Don&apos;t have an account? <Link to={"/register"}>Sign up</Link>
                     </div>
-                    {isValid && <button className="btn btn-blue" onClick={logout}>Log out</button>}
                 </div>
             </div>
         </>
