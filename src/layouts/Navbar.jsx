@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
 import {Link, NavLink, useLocation} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import FirebaseAuth from "/src/hooks/FirebaseAuth";
-import {logoutAction} from "/src/features/auth"
+import AuthHooks from "/src/hooks/AuthHooks";
+import pb from "/src/store/pocketbase";
 
 // Icons
 import {RiCloseFill} from "react-icons/ri";
@@ -10,14 +9,11 @@ import {FaRegUserCircle} from "react-icons/fa";
 import {IoSearch, IoMenu} from 'react-icons/io5';
 
 const Navbar = () => {
-    const dispatch = useDispatch();
-    const currentUser = useSelector(state => state.auth.user);
     const location = useLocation();
-    const {logout} = FirebaseAuth();
+    const {logout} = AuthHooks();
 
     const handleLogout = async () => {
-        const user = await logout();
-        dispatch(logoutAction(user))
+        await logout();
     }
 
     // states
@@ -90,13 +86,13 @@ const Navbar = () => {
                                     </div>
                                 </li>
 
-                                <li className={`right-nav-item ${currentUser && 'none'}`}>
+                                <li className={`right-nav-item ${pb.authStore.model && 'none'}`}>
                                     <NavLink to={"/register"}>Sign up</NavLink>
                                 </li>
-                                <li className={`right-nav-item ${currentUser && 'none'}`}>
+                                <li className={`right-nav-item ${pb.authStore.model && 'none'}`}>
                                     <NavLink to={"/login"}>Sign in</NavLink>
                                 </li>
-                                <li className={`relative right-nav-item ${!currentUser && 'none'}`}>
+                                <li className={`relative right-nav-item ${!pb.authStore.model && 'none'}`}>
                                     <FaRegUserCircle onClick={() => setProfile(!profile)}/>
                                     <ul className={`profile-list ${!profile && "none"}`}>
                                         <li>

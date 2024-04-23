@@ -1,28 +1,25 @@
 import {useNavigate} from "react-router-dom";
-import {useSelector} from "react-redux";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     sendEmailVerification, updateEmail,
+    updateProfile,
     signOut
 } from "firebase/auth";
 import {auth, db} from "/src/store/firebase";
-import {toast} from "react-toastify";
-import {collection, addDoc} from "firebase/firestore";
+import {toast} from "react-hot-toast";
+import {collection, doc, setDoc} from "firebase/firestore";
 
 
 const FirebaseAuth = () => {
     const navigate = useNavigate();
-    const currentUser = useSelector(state => state.auth.user);
-    console.log(currentUser);
     const registerUser = async (data) => {
         try {
             const {user} = await createUserWithEmailAndPassword(auth, data.email, data.password);
-            console.log(user)
-            // await sendEmailVerification(currentUser);
+            await sendEmailVerification(auth.currentUser);
             let createUser = ""
             if (user) {
-                createUser = await addDoc(collection(db, 'users'), {
+                createUser = await setDoc(doc(collection(db, 'users'), user.uid.toString()), {
                     id: user.uid,
                     firstname: "",
                     lastname: "null",
@@ -33,7 +30,7 @@ const FirebaseAuth = () => {
                     birthday: "null",
                     creationTime: user.metadata.creationTime,
                     phoneNumber: user.phoneNumber,
-                });
+                })
                 return createUser;
             }
             toast.success(`Welcome ${data.username}`);
@@ -57,27 +54,31 @@ const FirebaseAuth = () => {
     const verifyEmail = async () => {
         try {
             await sendEmailVerification(auth.currentUser);
-            toast.success(`Email sent to ${currentUser.email}`);
+            toast.success(`Email sent to ${auth.currentUser.email}`);
             navigate("/settings")
         } catch (e) {
             toast.error(e.message)
-            console.log(e)
         }
     }
-
+    const update = async (data) => {
+        try {
+            await updateProfile(auth.currentUser, data)
+            toast.success("Your profile updated")
+        } catch (e) {
+            toast.error(e.message);
+        }
+    }
     const changeEmail = async (data) => {
         try {
+            // await sendEmailVerification(auth.currentUser, data.email);
             await updateEmail(auth.currentUser, data.email);
-            await sendEmailVerification(data.email);
             toast.success(`Email change requested. Please verify your new email address.`);
         } catch (e) {
-            // Display error message
             toast.error(e.message);
-            console.error(e);
         }
     }
     const logout = async () => {
-        if (currentUser) {
+        if (auth.currentUser) {
             try {
                 await signOut(auth);
                 toast.success("You logged out successfully");
@@ -88,7 +89,7 @@ const FirebaseAuth = () => {
             }
         }
     }
-    return {registerUser, login, verifyEmail, changeEmail, logout};
+    return {registerUser, login, verifyEmail, changeEmail, logout, update};
 }
 
 export default FirebaseAuth;

@@ -1,5 +1,5 @@
 import {useForm} from "react-hook-form";
-import {AuthHooks} from "/src/hooks/AuthHooks";
+import AuthHooks from "/src/hooks/AuthHooks";
 
 const ResetPassword = () => {
     const {register, handleSubmit} = useForm();

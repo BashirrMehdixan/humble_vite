@@ -1,27 +1,16 @@
 import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
-import FirebaseAuth from "/src/hooks/FirebaseAuth";
-
-import {loginAction} from "/src/features/auth";
+import AuthHooks from "/src/hooks/AuthHooks";
 
 
 const Login = () => {
-    const dispatch = useDispatch();
     const {register, handleSubmit} = useForm();
-    const {login} = FirebaseAuth();
-
-    const handleLogin = async (data) => {
-        const user = await login(data);
-        if (user) {
-            dispatch(loginAction(user))
-        }
-    }
+    const {login} = AuthHooks();
     return (
         <>
             <div className="container">
                 <div className="register-box">
-                    <form onSubmit={handleSubmit(handleLogin)}>
+                    <form onSubmit={handleSubmit(login)}>
                         <div className="form-group">
                             <input
                                 type="email"
