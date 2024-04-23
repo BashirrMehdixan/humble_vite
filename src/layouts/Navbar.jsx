@@ -1,7 +1,7 @@
-import {useEffect, useState, useContext} from "react";
+import {useEffect, useState} from "react";
 import {Link, NavLink, useLocation} from "react-router-dom";
-import {AuthContext} from "/src/context/Auth/AuthContext";
-import {RegisterFunctions} from "/src/hooks/register";
+import AuthHooks from "/src/hooks/AuthHooks";
+import pb from "/src/store/pocketbase";
 
 // Icons
 import {RiCloseFill} from "react-icons/ri";
@@ -10,8 +10,11 @@ import {IoSearch, IoMenu} from 'react-icons/io5';
 
 const Navbar = () => {
     const location = useLocation();
-    const {logout} = RegisterFunctions();
-    const {isValid} = useContext(AuthContext);
+    const {logout} = AuthHooks();
+
+    const handleLogout = async () => {
+        await logout();
+    }
 
     // states
     const [open, setOpen] = useState(false);
@@ -83,13 +86,13 @@ const Navbar = () => {
                                     </div>
                                 </li>
 
-                                <li className={`right-nav-item ${isValid && 'none'}`}>
+                                <li className={`right-nav-item ${pb.authStore.model && 'none'}`}>
                                     <NavLink to={"/register"}>Sign up</NavLink>
                                 </li>
-                                <li className={`right-nav-item ${isValid && 'none'}`}>
+                                <li className={`right-nav-item ${pb.authStore.model && 'none'}`}>
                                     <NavLink to={"/login"}>Sign in</NavLink>
                                 </li>
-                                <li className={`relative right-nav-item ${!isValid && 'none'}`}>
+                                <li className={`relative right-nav-item ${!pb.authStore.model && 'none'}`}>
                                     <FaRegUserCircle onClick={() => setProfile(!profile)}/>
                                     <ul className={`profile-list ${!profile && "none"}`}>
                                         <li>
@@ -101,7 +104,7 @@ const Navbar = () => {
                                         <li>
                                             <Link to={"/settings"}>Settings</Link>
                                         </li>
-                                        <li onClick={logout}>
+                                        <li onClick={handleLogout}>
                                             Logout
                                         </li>
                                     </ul>

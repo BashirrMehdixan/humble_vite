@@ -115,6 +115,29 @@ a.border-bottom::after {
   padding: 0.5rem;
 }
 
+.reset-box {
+  width: 50%;
+  text-align: center;
+  background-color: #7c828d;
+  margin: 2.5rem auto;
+  padding: 1.25rem 1.5rem;
+}
+.reset-box .small-head {
+  color: #2f333d;
+}
+.reset-box .inner-text {
+  padding: 1.25rem 0;
+}
+.reset-box .btn {
+  width: 100%;
+}
+.reset-box .form-group {
+  margin: 0.85rem 0;
+}
+.reset-box .form-group input {
+  width: 100%;
+}
+
 @media only screen and (max-width: 767px) {
   .page-list {
     display: none;

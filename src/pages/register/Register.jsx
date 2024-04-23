@@ -1,21 +1,15 @@
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {AuthContext} from "/src/context/Auth/AuthContext";
-import {useContext} from "react";
-import {RegisterFunctions} from "../../hooks/register";
+import AuthHooks from "/src/hooks/AuthHooks";
 
 const Register = () => {
-    const {register, handleSubmit, reset} = useForm();
-    const {signup} = RegisterFunctions();
-    const onSubmit = async data => {
-        await signup(data);
-        reset();
-    }
+    const {register, handleSubmit} = useForm();
+    const {signup} = AuthHooks();
     return (
         <>
             <div className="container">
                 <div className="register-box">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(signup)}>
                         <div className="form-group">
                             <input
                                 type="text"

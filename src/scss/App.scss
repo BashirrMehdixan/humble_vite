@@ -140,6 +140,34 @@ a {
     }
 }
 
+.reset-box {
+    width: 50%;
+    text-align: center;
+    background-color: #7c828d;
+    margin: 2.5rem auto;
+    padding: 1.25rem 1.5rem;
+
+    .small-head {
+        color: #2f333d;
+    }
+
+    .inner-text {
+        padding: 1.25rem 0;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .form-group {
+        margin: .85rem 0;
+
+        input {
+            width: 100%;
+        }
+    }
+}
+
 @media only screen and (max-width: 767px) {
     .page-list {
         display: none;

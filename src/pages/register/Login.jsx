@@ -1,22 +1,16 @@
-import {useContext} from "react";
 import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {AuthContext} from "/src/context/Auth/AuthContext";
-import {RegisterFunctions} from "/src/hooks/register";
+import AuthHooks from "/src/hooks/AuthHooks";
+
 
 const Login = () => {
-    const {register, handleSubmit, reset} = useForm();
-    const {login, logout} = RegisterFunctions();
-    const {isValid} = useContext(AuthContext);
-    const onSubmit = async (data) => {
-        await login(data);
-        reset();
-    }
+    const {register, handleSubmit} = useForm();
+    const {login} = AuthHooks();
     return (
         <>
             <div className="container">
                 <div className="register-box">
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(login)}>
                         <div className="form-group">
                             <input
                                 type="email"
@@ -33,14 +27,14 @@ const Login = () => {
                                 {...register("password")}
                             />
                         </div>
-                        <button
-                            className="btn btn-blue">Log in
-                        </button>
+                        <div className="flex button-box">
+                            <button className="btn btn-blue">Log in</button>
+                            <Link to={"/reset-password"} className="btn btn-blue">Forget password?</Link>
+                        </div>
                     </form>
                     <div className={"register-text"}>
                         Don&apos;t have an account? <Link to={"/register"}>Sign up</Link>
                     </div>
-                    {isValid && <button className="btn btn-blue" onClick={logout}>Log out</button>}
                 </div>
             </div>
         </>
