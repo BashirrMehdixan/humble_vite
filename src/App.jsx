@@ -1,4 +1,4 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {RouterProvider, createBrowserRouter} from "react-router-dom";
 import {Toaster} from "react-hot-toast";
 
 // Layouts
@@ -16,6 +16,7 @@ import Register from "/src/pages/register/Register";
 import Login from "/src/pages/register/Login";
 import ResetPassword from "/src/pages/register/ResetPassword";
 import Dashboard from "/src/pages/profile/Dashboard";
+import Member from "/src/pages/member/Member";
 import NotFound from "/src/pages/NotFound";
 
 // CSS
@@ -81,6 +82,12 @@ const App = () => {
                     path: "/reset-password",
                     element: <ResetPassword/>
                 },
+                {
+                    path: "/membership",
+                    element: <Member/>
+
+                }
+                ,
                 {
                     path: "*",
                     element: <NotFound/>

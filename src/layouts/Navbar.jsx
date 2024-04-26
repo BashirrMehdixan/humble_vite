@@ -12,10 +12,6 @@ const Navbar = () => {
     const location = useLocation();
     const {logout} = AuthHooks();
 
-    const handleLogout = async () => {
-        await logout();
-    }
-
     // states
     const [open, setOpen] = useState(false);
     const [active, setActive] = useState(false);
@@ -29,6 +25,12 @@ const Navbar = () => {
     useEffect(() => {
         document.body.style.backgroundColor = location.pathname === "/" ? "#494F5C" : "#272930";
     }, [location])
+
+
+    const handleLogout = async () => {
+        setProfile(!profile);
+        await logout();
+    }
     return (
         <>
             <div className={`overlay ${!nav && 'none'}`} onClick={() => setNav(!nav)}></div>
