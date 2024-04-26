@@ -1,4 +1,4 @@
-import BannerComponent from "/src/components/BannerComponent";
+import {BannerComponent} from "/src/components/BannerComponent";
 
 const HomeBanner = () => {
     return (
