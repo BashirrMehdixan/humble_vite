@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import {FaCheckCircle} from "react-icons/fa";
 
 export const BannerComponent = ({banImg, btnText}) => {
     return (
@@ -37,14 +38,13 @@ export const BannerComponent = ({banImg, btnText}) => {
     )
 }
 
-export const MemberBanner = ({banImg, btnText}) => {
+export const MemberBannerComponent = ({bannerHead, btnLink, btnText, banImg}) => {
     return (
         <>
-            <div className={`banner-box ${banImg}`}>
+            <div className={`flex banner-box`}>
                 <div className="banner-content">
                     <h4 className="uni-head">
-                        Humble Choice offers huge discounts on great bundles of PC games, with new releases
-                        every month
+                        {bannerHead}
                     </h4>
                     <p className="inner-text">
                         Build your ideal 19th century society in Victoria 3. Fight for survival against
@@ -67,9 +67,19 @@ export const MemberBanner = ({banImg, btnText}) => {
                             Skip a month or cancel anytime
                         </li>
                     </ul>
-                    <Link to={"membership"} className={"btn btn-blue"}>{btnText}</Link>
+                    <Link to={btnLink} className={"btn btn-blue"}>{btnText}</Link>
+                </div>
+                <div className="banner-img">
+                    <img src={banImg} alt="Member-img"/>
                 </div>
             </div>
+            <ul className="banner-preferences">
+                <li>
+                    <span>
+                        <FaCheckCircle/>
+                    </span>
+                </li>
+            </ul>
         </>
     )
 }
